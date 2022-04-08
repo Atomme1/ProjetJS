@@ -1,0 +1,20 @@
+{
+  "name": "projetjs",
+  "version": "1.0.0",
+  "description": "Tristan CHEVET\r Emilie ROUX\r Norbet ASTIER",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atomme1/ProjetJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Atomme1/ProjetJS/issues"
+  },
+  "homepage": "https://github.com/Atomme1/ProjetJS#readme"
+}
