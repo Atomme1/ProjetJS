@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/Atomme1/ProjetJS#readme",
   "dependencies": {
-    "ramda": "^0.28.0",
-    "zebras": "^0.0.20"
+    "ramda": "^0.28.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "zebras": "^0.0.20"
   }
 }
