@@ -1,5 +1,4 @@
 import * as R from 'ramda';
-import * as Z from 'zebras';
 import * as fs from 'fs';
 
 const csv = fs.readFileSync('./CSV_file/Airplane_Crashes_and_Fatalities_Since_1908_2019.csv', 'utf8')
