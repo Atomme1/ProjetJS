@@ -1,14 +1,22 @@
 # ProjetJS
 
-Tristan CHEVET
-Emilie ROUX
-Norbet ASTIER
-Massimo BACCI
+Authors : 
+  - Tristan CHEVET
+  - Emilie ROUX
+  - Norbet ASTIER
+  - Massimo BACCI
 
-Dans ce TP nous allons :
+Description
 
-  - Créer un dataloader qui lit un csv et créé un dataset
-  - Shuffle le dataset
-  - Passer un chi² sur le dataset
-  - Faire une analyse en composantes principales sur ce dataset
-  - Sortir un trendset et un testset
+In this project :
+  - Reading a csv file and putting it in a dataset
+  - Shuffling of the dataset
+  - Chi² test on the dataset
+  - Principal Component Analysis of the dataset
+  - Creation of a trendset and testset
+
+Installation
+
+In order to run the project, you need to install Node JS.
+
+You then ned to install all of the necessaries libraries.
