@@ -1,6 +1,6 @@
 # ProjetJS
 
-Authors : 
+## Authors : 
   - Tristan CHEVET
   - Emilie ROUX
   - Norbet ASTIER
