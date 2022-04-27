@@ -1,7 +1,7 @@
 const R = require('ramda');
 const Z = require("zebras");
 const dataFromCSV = ("CSV_file/Airplane_Crashes_and_Fatalities_Since_1908_2019.csv");
-
+import {csvToArray,csvArrayToObject,csvToObject,objectToCsv} from "CSV_file/csvutils.js";
 /*
 const df = Z.readCSV("CSV_file/Airplane_Crashes_and_Fatalities_Since_1908_2019.csv")
 const datasetLoaded = Z.pipe([
@@ -13,24 +13,8 @@ const datasetLoaded = Z.pipe([
 console.log(datasetLoaded);
 */
 
-transformCSVText = R.pipe(
-    R.pipe( //text
-        R.split('\n'), //rows text
-        R.map( //row text
-            R.pipe( //row text
-                R.split(','), //cells
-                R.map(R.trim) //trim cells
-            )
-        )
-    ), //[ rows -> cells]
-    R.splitAt(1), //name's column first row
-    R.apply(   //[ [names], [lines] ]
-        R.lift(R.zipObj)
-    )
-)
-arrayOfObject = transformCSVText(dataFromCSV);
 console.log(arrayOfObject);
-Table(arrayOfObject);
+
 /*
 
 const data = [
