@@ -1,7 +1,7 @@
 const R = require('ramda');
 const Z = require("zebras");
 const dataFromCSV = ("CSV_file/Airplane_Crashes_and_Fatalities_Since_1908_2019.csv");
-import {csvToArray,csvArrayToObject,csvToObject,objectToCsv} from "CSV_file/csvutils.js";
+import {csvToJson} from "https://github.com/Atomme1/ProjetJS/blob/927a443fc238d90464e76b368fba83b0ae9e37e6/CSV_file/csvToJson.js";
 /*
 const df = Z.readCSV("CSV_file/Airplane_Crashes_and_Fatalities_Since_1908_2019.csv")
 const datasetLoaded = Z.pipe([
@@ -12,8 +12,8 @@ const datasetLoaded = Z.pipe([
 
 console.log(datasetLoaded);
 */
-
-console.log(arrayOfObject);
+const json = csvToJson(dataFromCSV);
+console.log(json);
 
 /*
 

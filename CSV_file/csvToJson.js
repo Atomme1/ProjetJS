@@ -3,7 +3,7 @@ const fs = require('fs')
 const csv = fs.readFileSync('./data.csv', 'utf8')
 const columns = ['actor', 'character', 'episodes']
 
-const csvToJson = R.compose(
+const csvToJson = csvJson => R.compose(
   R.map(R.compose(
     R.evolve({episodes: Number}),
     R.zipObj(columns),
@@ -13,3 +13,7 @@ const csvToJson = R.compose(
 )(csv)
 
 console.log(csvToJson)
+
+module.exports = {
+  csvToJson
+};
