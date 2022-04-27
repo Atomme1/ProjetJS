@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/Atomme1/ProjetJS/issues"
   },
-  "homepage": "https://github.com/Atomme1/ProjetJS#readme"
+  "homepage": "https://github.com/Atomme1/ProjetJS#readme",
+  "dependencies": {
+    "ramda": "^0.28.0",
+    "zebras": "^0.0.20"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
