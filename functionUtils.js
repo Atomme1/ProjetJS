@@ -23,6 +23,10 @@ const getIndexSplit = R.pipe(
 );
 
 const splitInTrainingAndTesting = R.converge(R.splitAt,[getIndexSplit,R.identity]);
+
+const getTraining = R.pipe(splitInTrainingAndTesting,R.head);
+const getTesting = R.pipe(splitInTrainingAndTesting,R.last);
+
 //console.log(num);
 /*
 const datasetTrainTest = R.splitAt(num,dataset);
@@ -35,5 +39,5 @@ console.log(R.length(datasetTrain))
 
 
 
-export { csvToJson, splitInTrainingAndTesting };
+export { csvToJson, splitInTrainingAndTesting, getTraining, getTesting };
 
