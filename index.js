@@ -12,8 +12,16 @@ const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidth
 
 //analysis of the csv
 const dataset = csvToJson(csv,columns);
-console.log(dataset);
+//console.log(dataset);
 
+console.log(R.length(dataset))
+const num =  Math.round(R.length(dataset)*0.8);
+//console.log(num);
 
+const datasetTrainTest = R.splitAt(num,dataset);
+const datasetTrain = datasetTrainTest[0];
+const datasetTest = datasetTrainTest[1];
+console.log(datasetTrainTest[1]);
 
+console.log(R.length(datasetTrain))
 
