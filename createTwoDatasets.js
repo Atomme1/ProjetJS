@@ -8,7 +8,7 @@ const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidth
 
 const dataset = csvToJson(csv,columns);
 
-const firstOrNull = R.propOr(null, 0)
+const firstOrNull = R.prop(0)
 
 const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
 
