@@ -3,11 +3,6 @@ import * as fs from 'fs';
 
 import { csvToJson} from "./functionUtils.js";
 
-const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
-const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
-
-const dataset = csvToJson(csv,columns);
-
 const firstOrNull = R.prop(0)
 
 const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
