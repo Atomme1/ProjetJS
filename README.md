@@ -11,9 +11,9 @@
 In this project :
   - Reading a csv file and putting it in a dataset
   - Shuffling of the dataset
-  - Chi² test on the dataset
+  - Creation of a trainset and testset
+  - Chi² test on the test dataset
   - Principal Component Analysis of the dataset
-  - Creation of a trendset and testset
 
 ## Installation
 
@@ -35,7 +35,7 @@ yarn install
 
 ### Start the project
 
-To start the project you just need to execute the following commands :
+To start the project you just need to execute the following command :
 
 With npm :
 
