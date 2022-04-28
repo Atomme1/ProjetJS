@@ -4,16 +4,16 @@ import * as Z from 'zebras';
 import * as fs from 'fs';
 
 //functions import
-import { csvToJson, getTraining, getTesting} from "./functionUtils.js";
+import { csvToJson, getTraining, getTesting, dropColumns} from "./functionUtils.js";
 
 //details of the csv to analyze
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 
 //analysis of the csv
-const dataset = csvToJson(csv,columns);
+const datasetinit = csvToJson(csv,columns);
 
-
+const dataset = dropColumns(datasetinit)
 
 
 //console.log(dataset);

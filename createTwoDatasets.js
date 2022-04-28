@@ -1,27 +1,38 @@
 import * as R from 'ramda';
 import * as fs from 'fs';
 
-//On doit séparer le dataset shuffle en deux datasets
-//Training set 80% des données et test set 20%
+import { csvToJson, TrainTestSplit} from "./functionUtils.js";
 
-/*
-const co = fs.readFileSync('./CSV_file/Iris.csv').toString().split('\r\n')
-const coa = co[0]
+const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
+const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 
-console.log(co);
-*/
+//analysis of the csv
+const dataset = csvToJson(csv,columns);
 
 const firstOrNull = R.propOr(null, 0)
 
-const arr1 = ["string1", "string2"]
-const arr2 = []
-
-console.log(firstOrNull(arr1))
-console.log(firstOrNull(arr2))
-
 const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
+
+const getCSV2 = (path) => fs.readFileSync(path, 'utf8')
+
+const dropColumns = (list) => R.drop(1,list)
 
 const getColumns = (path) => firstOrNull(getCSV(path))
 
-console.log(getColumns('./CSV_file/Iris.csv'))
+const getColumnsList = (path) => R.map(
+    firstOrNull(getCSV(path)),
+    R.split(',')
+)
+
+//console.log(dropColumns(dataset))
+
+console.log(getColumnsList('./CSV_file/Iris.csv'))
+
+const path = './CSV_file/Iris.csv'
+
+const data = csvToJson(getCSV2(path),getColumns(path))
+
+//console.log(dropColumns(data))
+
+//console.log(dataset)
 
