@@ -10,7 +10,7 @@ import csvToJson from "./CSV_file/csvToJson.js";
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 
-//analyze of the csv
+//analysis of the csv
 const dataset = csvToJson(csv,columns);
 console.log(dataset);
 
