@@ -18,16 +18,19 @@ const dropColumns = (list) => R.drop(1,list)
 
 const getColumns = (path) => firstOrNull(getCSV(path))
 
+const getColumnsToList = (str) => str.split(",")
+
 
 //console.log(dropColumns(dataset))
 
 console.log(getColumns('./CSV_file/Iris.csv'))
+console.log(getColumnsToList(getColumns('./CSV_file/Iris.csv')))
 
 const path = './CSV_file/Iris.csv'
 
-const data = csvToJson(getCSV2(path),getColumns(path))
+const data = csvToJson(getCSV2(path),getColumnsToList(getColumns(path)))
 
-//console.log(dropColumns(data))
+console.log(dropColumns(data))
 
 //console.log(dataset)
 
