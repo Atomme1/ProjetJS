@@ -1,12 +1,11 @@
 import * as R from 'ramda';
 import * as fs from 'fs';
 
-import { csvToJson, TrainTestSplit} from "./functionUtils.js";
+import { csvToJson} from "./functionUtils.js";
 
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 
-//analysis of the csv
 const dataset = csvToJson(csv,columns);
 
 const firstOrNull = R.propOr(null, 0)
@@ -19,14 +18,10 @@ const dropColumns = (list) => R.drop(1,list)
 
 const getColumns = (path) => firstOrNull(getCSV(path))
 
-const getColumnsList = (path) => R.map(
-    firstOrNull(getCSV(path)),
-    R.split(',')
-)
 
 //console.log(dropColumns(dataset))
 
-console.log(getColumnsList('./CSV_file/Iris.csv'))
+console.log(getColumns('./CSV_file/Iris.csv'))
 
 const path = './CSV_file/Iris.csv'
 
