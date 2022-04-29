@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import * as fs from 'fs';
 
-import { csvToJson} from "./datasetFunctionUtils.js";
+import {csvToJson} from "./datasetFunctionUtils.js";
 
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
