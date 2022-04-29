@@ -25,7 +25,7 @@ si chi2 < critical value of the test => we reject the null hypothesis
 Notre Null Hypothesis => on a autant d'espèce de fleurs dans notre datasetTest
 Tout ça pour montrer que nos data sont bien réparti dans le datasetTest :)
 
-Mais pour le rest on utilise la lib @stdlib/stats-chi2test :))))))
+Mais pour faire tout ça on utilise la lib @stdlib/stats-chi2test :))))))
  */
 import * as R from 'ramda';
 import chi2test from '@stdlib/stats-chi2test';
