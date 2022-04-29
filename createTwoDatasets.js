@@ -8,29 +8,35 @@ const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidth
 
 const dataset = csvToJson(csv,columns);
 
-const firstOrNull = R.prop(0)
+const getFirstLine = R.prop(0)
 
-const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
+//const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
 
-const getCSV2 = (path) => fs.readFileSync(path, 'utf8')
+const getCSV = R.pipe(
+    fs.readFileSync,
+    R.toString,
+    R.split('\r\n')
+)
 
-const dropColumns = (list) => R.drop(1,list)
+const getCSV2 = (path) => fs.readFileSync(path,'utf8');
 
-const getColumns = (path) => firstOrNull(getCSV(path))
+const dropColumns =  R.drop(1,R.identity)
+
+const getColumns = R.converge(getFirstLine,[getCSV])
 
 const getColumnsToList = (str) => str.split(",")
 
 
 //console.log(dropColumns(dataset))
 
-console.log(getColumns('./CSV_file/Iris.csv'))
-console.log(getColumnsToList(getColumns('./CSV_file/Iris.csv')))
+//console.log(getColumns('./CSV_file/Iris.csv'))
+//console.log(getColumnsToList(getColumns('./CSV_file/Iris.csv')))
 
 const path = './CSV_file/Iris.csv'
+console.log(getCSV2(path))
+//const data = csvToJson(getCSV2(path),getColumnsToList(getColumns(path)))
 
-const data = csvToJson(getCSV2(path),getColumnsToList(getColumns(path)))
-
-console.log(dropColumns(data))
+//console.log(dropColumns(data))
 
 //console.log(dataset)
 
