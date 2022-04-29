@@ -1,6 +1,13 @@
 import * as R from 'ramda';
 import * as fs from 'fs';
 
+import { csvToJson} from "./datasetFunctionUtils.js";
+
+const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
+const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
+
+const dataset = csvToJson(csv,columns);
+
 const getFirstLine = R.prop(0)
 
 const getCSV = R.pipe(
@@ -19,7 +26,7 @@ const getColumnsToList = (str) => str.split(",")
 
 console.log(getCSV2('./CSV_file/Iris.csv'))
 
-//console.log(dropColumns(dataset))
+//console.log(dropColumns(getCSV('./CSV_file/Iris.csv')))
 
 //console.log(getColumns('./CSV_file/Iris.csv'))
 //console.log(getColumnsToList(getColumns('./CSV_file/Iris.csv')))
