@@ -22,6 +22,5 @@ const splitInTrainingAndTesting = R.converge(R.splitAt,[getIndexSplit,R.identity
 const getTraining = R.pipe(splitInTrainingAndTesting,R.head);
 const getTesting = R.pipe(splitInTrainingAndTesting,R.last);
 
-//
 export { csvToJson, splitInTrainingAndTesting, getTraining, getTesting , dropColumns};
 
