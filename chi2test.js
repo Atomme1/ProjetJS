@@ -29,6 +29,8 @@ Mais pour faire tout ça on utilise la lib @stdlib/stats-chi2test :))))))
  */
 import * as R from 'ramda';
 import chi2test from '@stdlib/stats-chi2test';
+import {csvToJson, getTraining, getTesting, dropColumns} from "./datasetFunctionUtils.js";
+import fs from "fs";
 
 var x = [
     [ 20, 30 ],
@@ -49,6 +51,26 @@ var out = chi2test( x, opts );
     }
 */
 //console.log(out);
-console.log(out.print());
-console.log(Object.keys(out));
-console.log(out.df);
+//console.log(out.print());
+//console.log(Object.keys(out));
+//console.log(out.df);
+
+const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
+const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
+const datasetinit = csvToJson(csv,columns);
+const dataset = dropColumns(datasetinit)
+
+const getExpectedValues2list = (dataset) => R.pipe(
+    R.pluck(dataset.Species),
+    R.length(dataset),
+
+)
+var getSpecies = R.pluck('Species');
+
+console.log(dataset);
+//expected = [1/3*len(datasetTest),1/3*len(datasetTest),1/3*len(datasetTest)];
+
+const getObservedValues2list = (dataset) => R.pipe(
+
+    R.map(R.count(R.groupBy(dataset.Species))),
+)
