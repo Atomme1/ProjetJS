@@ -1,16 +1,7 @@
 import * as R from 'ramda';
 import * as fs from 'fs';
 
-import { csvToJson} from "./functionUtils.js";
-
-const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
-const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
-
-const dataset = csvToJson(csv,columns);
-
 const getFirstLine = R.prop(0)
-
-//const getCSV = (path) => fs.readFileSync(path).toString().split('\r\n')
 
 const getCSV = R.pipe(
     fs.readFileSync,
@@ -26,6 +17,7 @@ const getColumns = R.converge(getFirstLine,[getCSV])
 
 const getColumnsToList = (str) => str.split(",")
 
+console.log(getCSV2('./CSV_file/Iris.csv'))
 
 //console.log(dropColumns(dataset))
 
