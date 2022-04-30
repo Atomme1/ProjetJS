@@ -4,7 +4,6 @@
   "description": "Tristan CHEVET\r Emilie ROUX\r Norbet ASTIER",
   "main": "index.js",
   "type": "module",
-
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +23,8 @@
     "ramda": "^0.28.0"
   },
   "devDependencies": {
+    "@stdlib/ndarray-array": "^0.0.9",
+    "@stdlib/stats-chi2test": "^0.0.8",
     "gulp": "^4.0.2",
     "zebras": "^0.0.20"
   }
