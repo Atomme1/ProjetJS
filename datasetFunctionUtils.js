@@ -8,9 +8,9 @@ const csvToJson = (csvfile, listcolumns) => R.compose(
     R.split('\r\n')
 )(csvfile)
 
-const dropColumns = (list) => R.drop(1,list)
+const dropColumns = R.drop(1,R.__)
 
-const getpercentage = (percentage) => R.divide(percentage,100);
+const getpercentage =  R.divide(R.__,100);
 
 const getIndexSplit = R.pipe(
     R.converge(R.multiply(getpercentage(80)), [R.length]),

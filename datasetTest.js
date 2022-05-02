@@ -18,11 +18,11 @@ const getCSV = R.pipe(
 
 const getCSV2 = (path) => fs.readFileSync(path,'utf8');
 
-const dropColumns =  R.drop(1,R.identity)
+const dropColumns =  R.drop(1,R.__)
 
 const getColumns = R.converge(getFirstLine,[getCSV])
 
-const getColumnsToList = (str) => str.split(",")
+const getColumnsToList =  R.split(",");
 
 console.log(getCSV2('./CSV_file/Iris.csv'))
 
