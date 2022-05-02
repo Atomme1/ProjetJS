@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Atomme1/ProjetJS#readme",
   "dependencies": {
+    "pca-js": "^1.0.2",
     "ramda": "^0.28.0"
   },
   "devDependencies": {
