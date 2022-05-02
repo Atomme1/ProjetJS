@@ -59,18 +59,26 @@ const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 const datasetinit = csvToJson(csv,columns);
 const dataset = dropColumns(datasetinit)
+console.log( dataset );
 
-const getExpectedValues2list = (dataset) => R.pipe(
-    R.pluck(dataset.Species),
-    R.length(dataset),
 
-)
-var getSpecies = R.pluck('Species');
+const getExpectedValues2list = R.pipe(
+    R.groupBy(R.prop('Species')),
+    R.map(R.pipe(R.pluck('type'))),
 
-console.log(dataset);
+);
+
+const result = getExpectedValues2list(dataset);
+console.log(result);
+const getSetosaLenght = R.length(result);
+console.log(getSetosaLenght);
+
 //expected = [1/3*len(datasetTest),1/3*len(datasetTest),1/3*len(datasetTest)];
 
 const getObservedValues2list = (dataset) => R.pipe(
 
-    R.map(R.count(R.groupBy(dataset.Species))),
+    R.map(R.count(R.groupBy("Species"))),
+    R.length,
 )
+
+
