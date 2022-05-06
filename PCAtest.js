@@ -14,27 +14,33 @@ const datasetinit = csvToJson(csv,columns);
 
 const dataset = dropColumns(datasetinit)
 
-//console.log(dataset);
 
-const values = []
+const getValues = R.pipe(
+    R.map(
+        R.pipe(
+            R.values,
+            R.drop(1),
+            R.dropLast(1),
+        )
+    )
+);
 
-for (let i = 0; i < dataset.length; i++) {
-    values[i] = Object.values(dataset[i]);
-}
+const getVectors = R.pipe(
+    getValues,
+    PCA.getEigenVectors
+);
 
-for (let i = 0; i < values.length; i++) {
-    values[i].pop()
-    values[i].shift()
-}
+//console.log(getVectors(dataset));
 
-console.log(values);
+const first = R.pipe(
+    getVectors,
+    R.converge(PCA.computePercentageExplained, [R.identity, R.prop(0)]),
+);
 
-const vectors = PCA.getEigenVectors(values);
+const topTwo = R.pipe(
+    getVectors,
+    R.converge(PCA.computePercentageExplained, [R.identity, R.prop(0), R.prop(1)]),
+);
 
-console.log(vectors);
-
-const first = PCA.computePercentageExplained(vectors,vectors[0])
-const topTwo = PCA.computePercentageExplained(vectors,vectors[0],vectors[1])
-
-console.log(first);
-console.log(topTwo);
+console.log(first(dataset));
+console.log(topTwo(dataset));

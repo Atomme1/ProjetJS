@@ -31,6 +31,7 @@ import * as R from 'ramda';
 import chi2test from '@stdlib/stats-chi2test';
 import {csvToJson, getTraining, getTesting, dropColumns} from "./datasetFunctionUtils.js";
 import fs from "fs";
+import {compose} from "ramda";
 
 var x = [
     [ 20, 30 ],
@@ -58,8 +59,8 @@ var out = chi2test( x, opts );
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
 const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
 const datasetinit = csvToJson(csv,columns);
-const dataset = dropColumns(datasetinit)
-console.log( dataset );
+const dataset = dropColumns(datasetinit);
+console.log( dataset[0] );
 
 
 const getExpectedValues2list = R.pipe(
@@ -68,7 +69,32 @@ const getExpectedValues2list = R.pipe(
 
 );
 
-const result = getExpectedValues2list(dataset);
+const getObservedValues = R.pipe(
+    R.pluck('Species'),
+    R.countBy(R.identity),
+    R.values
+);
+
+const getNumberOfOutput = R.pipe(
+    getObservedValues,
+    R.length
+);
+
+console.log(getObservedValues(dataset));
+
+const getExpectedValues = R.converge(
+    R.repeat,[
+        R.converge(R.multiply,[
+        R.converge(R.divide(1),[getNumberOfOutput]),
+        R.length
+        ]),
+        getNumberOfOutput
+    ]
+);
+
+console.log(getExpectedValues(dataset));
+
+/*const result = getExpectedValues2list(dataset);
 console.log(result);
 const getSetosaLenght = R.length(result);
 console.log(getSetosaLenght);
@@ -79,6 +105,6 @@ const getObservedValues2list = (dataset) => R.pipe(
 
     R.map(R.count(R.groupBy("Species"))),
     R.length,
-)
+)*/
 
 

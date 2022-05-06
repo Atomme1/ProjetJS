@@ -4,7 +4,7 @@ import * as Z from 'zebras';
 import * as fs from 'fs';
 
 //functions import
-import { csvToJson, getTraining, getTesting, dropColumns} from "./datasetFunctionUtils.js";
+import { csvToJson, getTraining, getTesting, dropColumns, doShuffle} from "./datasetFunctionUtils.js";
 
 //details of the csv to analyze
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
@@ -13,13 +13,16 @@ const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidth
 //analysis of the csv
 const datasetinit = csvToJson(csv,columns);
 
-const dataset = dropColumns(datasetinit)
+const getDataset = R.pipe(
+    dropColumns,
+    doShuffle,
+);
 
+const dataset = getDataset(datasetinit);
 
-//console.log(dataset);
-console.log(getTraining(dataset))
-console.log(getTesting(dataset))
+console.log(dataset);
 
-//const datasetsplit = TrainTestSplit(dataset,80);
-//console.log(datasetsplit);
+console.log(getTraining(dataset));
+console.log(getTesting(dataset));
+
 

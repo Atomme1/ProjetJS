@@ -8,7 +8,7 @@ const csvToJson = (csvfile, listcolumns) => R.compose(
     R.split('\r\n')
 )(csvfile)
 
-const dropColumns = R.drop(1,R.__)
+const dropColumns = R.drop(1)
 
 const getpercentage =  R.divide(R.__,100);
 
@@ -17,10 +17,12 @@ const getIndexSplit = R.pipe(
     Math.round,
 );
 
+const doShuffle = R.sort(() => 0.5 - Math.random());
+
 const splitInTrainingAndTesting = R.converge(R.splitAt,[getIndexSplit,R.identity]);
 
 const getTraining = R.pipe(splitInTrainingAndTesting,R.head);
 const getTesting = R.pipe(splitInTrainingAndTesting,R.last);
 
-export { csvToJson, splitInTrainingAndTesting, getTraining, getTesting , dropColumns};
+export { csvToJson, splitInTrainingAndTesting, getTraining, getTesting , dropColumns, doShuffle};
 

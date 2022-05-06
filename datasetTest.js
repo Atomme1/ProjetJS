@@ -18,7 +18,7 @@ const getCSV = R.pipe(
 
 const getCSV2 = (path) => fs.readFileSync(path,'utf8');
 
-const dropColumns =  R.drop(1,R.__)
+const dropColumns =  R.drop(1)
 
 const getColumns = R.converge(getFirstLine,[getCSV])
 
