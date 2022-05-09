@@ -5,7 +5,7 @@ import * as fs from 'fs';
 //functions import
 import { csvToJson, getTraining, getTesting, dropColumns, doShuffle} from "./datasetFunctionUtils.js";
 import { getValues, getVectors, first, topTwo} from "./PCAFunctionUtils.js"
-import { getChi2,getExpectedValues, getObservedValues,getListObservedAndExpected} from "./chi2test.js";
+import { getChi2,getExpectedValues, getObservedValues,getListObservedAndExpected} from "./chi2FunctionUtils.js";
 
 //details of the csv to analyze
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
