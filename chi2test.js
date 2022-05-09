@@ -62,13 +62,6 @@ const datasetinit = csvToJson(csv,columns);
 const dataset = dropColumns(datasetinit);
 console.log( dataset[0] );
 
-
-const getExpectedValues2list = R.pipe(
-    R.groupBy(R.prop('Species')),
-    R.map(R.pipe(R.pluck('type'))),
-
-);
-
 const getObservedValues = R.pipe(
     R.pluck('Species'),
     R.countBy(R.identity),
