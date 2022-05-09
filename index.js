@@ -28,9 +28,9 @@ const dataset = getDataset(datasetinit);
 
 //console.log(topTwo(dataset));
 
-const train = getTraining(dataset);
-console.log(train);
+const test = getTesting(dataset);
+console.log(test);
 
-console.log(getChi2(train));
+console.log(getChi2(test));
 
 
