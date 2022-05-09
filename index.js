@@ -31,6 +31,6 @@ const dataset = getDataset(datasetinit);
 const test = getTesting(dataset);
 console.log(test);
 
-console.log(getChi2(test));
+console.log(getChi2(test).print());
 
 
