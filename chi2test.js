@@ -33,35 +33,6 @@ import {csvToJson, getTraining, getTesting, dropColumns} from "./datasetFunction
 import fs from "fs";
 import {compose} from "ramda";
 
-var x = [
-    [ 20, 30 ],
-    [ 30, 20 ]
-];
-var opts = {
-    'alpha': 0.1
-};
-var out = chi2test( x, opts );
-/* returns
-    {
-        'rejected': true,
-        'alpha': 0.1,
-        'pValue': ~0.072,
-        'df': 1,
-        'statistic': 3.24,
-        ...
-    }
-*/
-//console.log(out);
-//console.log(out.print());
-//console.log(Object.keys(out));
-//console.log(out.df);
-
-const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
-const columns = ['Id','SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']
-const datasetinit = csvToJson(csv,columns);
-const dataset = dropColumns(datasetinit);
-console.log( dataset[0] );
-
 const getObservedValues = R.pipe(
     R.pluck('Species'),
     R.countBy(R.identity),
@@ -73,7 +44,6 @@ const getNumberOfOutput = R.pipe(
     R.length
 );
 
-console.log(getObservedValues(dataset));
 
 const getExpectedValues = R.converge(
     R.repeat,[
@@ -85,35 +55,15 @@ const getExpectedValues = R.converge(
     ]
 );
 
-//const getExpectedValues = R.converge(
+const getListObservedAndExpected = R.pipe(
+    R.applySpec({
+        observed: getObservedValues,
+        expected: getExpectedValues,
+    }),
+    R.values,
 
-//);
-
-const getTotalColumn = R.map(
-    R.sum
 );
 
-const getTotalRow = R.pipe(
-    R.transpose,
-    getTotalColumn
-);
+const getChi2 = data => chi2test(getListObservedAndExpected(data));
 
-console.log(getExpectedValues(dataset));
-
-console.log(getTotalColumn([[10,8,12],[30,12,28]]));
-console.log(getTotalRow([[10,8,12],[30,12,28]]));
-
-/*const result = getExpectedValues2list(dataset);
-console.log(result);
-const getSetosaLenght = R.length(result);
-console.log(getSetosaLenght);
-
-//expected = [1/3*len(datasetTest),1/3*len(datasetTest),1/3*len(datasetTest)];
-
-const getObservedValues2list = (dataset) => R.pipe(
-
-    R.map(R.count(R.groupBy("Species"))),
-    R.length,
-)*/
-
-
+export {  getChi2,getExpectedValues, getObservedValues,getListObservedAndExpected};
