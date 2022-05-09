@@ -92,7 +92,23 @@ const getExpectedValues = R.converge(
     ]
 );
 
+//const getExpectedValues = R.converge(
+
+//);
+
+const getTotalColumn = R.map(
+    R.sum
+);
+
+const getTotalRow = R.pipe(
+    R.transpose,
+    getTotalColumn
+);
+
 console.log(getExpectedValues(dataset));
+
+console.log(getTotalColumn([[10,8,12],[30,12,28]]));
+console.log(getTotalRow([[10,8,12],[30,12,28]]));
 
 /*const result = getExpectedValues2list(dataset);
 console.log(result);
