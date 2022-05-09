@@ -26,7 +26,6 @@
   "devDependencies": {
     "@stdlib/ndarray-array": "^0.0.9",
     "@stdlib/stats-chi2test": "^0.0.8",
-    "gulp": "^4.0.2",
-    "zebras": "^0.0.20"
+    "gulp": "^4.0.2"
   }
 }
