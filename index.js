@@ -5,6 +5,7 @@ import * as fs from 'fs';
 
 //functions import
 import { csvToJson, getTraining, getTesting, dropColumns, doShuffle} from "./datasetFunctionUtils.js";
+import { getValues, getVectors, first, topTwo} from "./PCAFunctionUtils.js"
 
 //details of the csv to analyze
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8')
@@ -24,5 +25,7 @@ console.log(dataset);
 
 console.log(getTraining(dataset));
 console.log(getTesting(dataset));
+
+console.log(topTwo(dataset));
 
 
