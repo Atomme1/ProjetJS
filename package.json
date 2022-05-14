@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
+    "code-style": "xo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,17 @@
     "@stdlib/stats-chi2test": "^0.0.8",
     "chai": "^4.3.6",
     "gulp": "^4.0.2",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "xo": "^0.48.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "unicorn/prefer-node-protocol": 0,
+      "no-unused-vars": 0,
+      "unicorn/filename-case": 0,
+      "comma-dangle": 0,
+      "capitalized-comments": 0
+    }
   }
 }

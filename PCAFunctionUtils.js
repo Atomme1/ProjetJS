@@ -27,4 +27,4 @@ const topTwo = R.pipe(
     R.converge(PCA.computePercentageExplained, [R.identity, R.prop(0), R.prop(1)]),
 );
 
-export { getValues, getVectors, first, topTwo};
+export {getValues, getVectors, first, topTwo};
