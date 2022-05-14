@@ -66,9 +66,11 @@ yarn start
 ## Libraries
 
 ramda :
+
 <https://ramdajs.com>
 
 @stdlib/stats-chi2test (For the equirepartition on a dataset test :
+
 <https://www.npmjs.com/package/@stdlib/stats-chi2test>
 
 pca-js :
