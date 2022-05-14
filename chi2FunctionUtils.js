@@ -15,8 +15,8 @@ const getNumberOfOutput = R.pipe(
 const getExpectedValues = R.converge(
     R.repeat, [
         R.converge(R.multiply, [
-        R.converge(R.divide(1), [getNumberOfOutput]), // eslint-disable-line indent
-        R.length // eslint-disable-line indent
+        R.converge(R.divide(1), [getNumberOfOutput]),
+        R.length
         ]),
         getNumberOfOutput
     ]

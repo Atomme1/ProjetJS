@@ -33,14 +33,13 @@
     "xo": "^0.48.0"
   },
   "xo": {
-    "space": 4,
     "rules": {
       "unicorn/prefer-node-protocol": 0,
       "no-unused-vars": 0,
       "unicorn/filename-case": 0,
       "comma-dangle": 0,
       "capitalized-comments": 0,
-      "indent": "warning"
+      "indent": "off"
     }
   }
 }
