@@ -26,9 +26,11 @@ const chi2result = x => R.pipe(
 const resultats = R.pipe(
     getDataset,
     R.applySpec({
-    training: chi2result(getTraining),
-    testing: chi2result(getTesting)
+        PCAFist: first,
+        PCATopTwo: topTwo,
+        training: chi2result(getTraining),
+        testing: chi2result(getTesting)
     })
 );
 
-console.log(resultats(datasetinit))
+console.log(resultats(datasetinit));

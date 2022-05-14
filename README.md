@@ -27,12 +27,6 @@ With npm :
 npm install
 ```
 
-With yarn :
-
-```node
-yarn install
-```
-
 ### Start the project
 
 To start the project you just need to execute the following command :
@@ -42,11 +36,59 @@ With npm :
 ```node
 npm start
 ```
-With yarn :
+
+### Test the project
+
+To test the project you just need to execute the following command :
+
+With npm :
 
 ```node
-yarn start
+npm test
 ```
+
+### Test the code-style of the code
+
+To test the code-style of the code you just need to execute the following command :
+
+With npm :
+
+```node
+npm run code-style
+```
+
+### Github Actions
+
+When we have a pull request, we use Github Actions (the «pull_request_git.yml» file) to make sure the code:
+  - Doesn't merge directly
+  - Passes all required test (the style-code and the npm test) to see if there is any mistake in the code
 
 ## Libraries
 
+ramda :
+
+<https://ramdajs.com>
+
+@stdlib/stats-chi2test (For the equirepartition on a dataset test) :
+
+<https://www.npmjs.com/package/@stdlib/stats-chi2test>
+
+pca-js :
+
+<https://www.npmjs.com/package/pca-js>
+
+chai :
+
+<https://www.chaijs.com>
+
+gulp :
+
+<https://gulpjs.com>
+
+mocha :
+
+<https://mochajs.org>
+
+xo :
+
+<https://www.npmjs.com/package/xo>
