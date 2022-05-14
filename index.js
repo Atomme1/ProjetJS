@@ -5,12 +5,11 @@ import * as R from 'ramda';
 // Functions import
 import {csvToJson, getTraining, getTesting, dropColumns, doShuffle} from './datasetFunctionUtils.js';
 import {getValues, getVectors, first, topTwo} from './PCAFunctionUtils.js';
-import {getChi2, getExpectedValues, getObservedValues, getListObservedAndExpected} from './chi2FunctionUtils.js';
+import {getChi2, getChi2Print, getExpectedValues, getObservedValues, getListObservedAndExpected} from './chi2FunctionUtils.js';
 
 // Details of the csv to analyze
 const csv = fs.readFileSync('./CSV_file/Iris.csv', 'utf8');
 const columns = ['Id', 'SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm', 'Species'];
-
 // Analysis of the csv
 const datasetinit = csvToJson(csv, columns);
 
@@ -19,16 +18,17 @@ const getDataset = R.pipe(
     doShuffle,
 );
 
-const dataset = getDataset(datasetinit);
+const chi2result = x => R.pipe(
+    x,
+    getChi2Print,
+);
 
-// console.log(dataset);
+const resultats = R.pipe(
+    getDataset,
+    R.applySpec({
+    training: chi2result(getTraining),
+    testing: chi2result(getTesting)
+    })
+);
 
-// console.log(getTraining(dataset));
-// console.log(getTesting(dataset));
-
-// console.log(topTwo(dataset));
-
-const test = getTesting(dataset);
-console.log(test);
-
-console.log(getChi2(test).print());
+console.log(resultats(datasetinit))

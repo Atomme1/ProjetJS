@@ -32,5 +32,6 @@ const getListObservedAndExpected = R.pipe(
 );
 
 const getChi2 = data => chi2test(getListObservedAndExpected(data));
+const getChi2Print = data => chi2test(getListObservedAndExpected(data)).print();
 
-export {getChi2, getExpectedValues, getObservedValues, getListObservedAndExpected};
+export {getChi2, getChi2Print, getExpectedValues, getObservedValues, getListObservedAndExpected};
