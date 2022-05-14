@@ -28,7 +28,6 @@
     "@stdlib/stats-chi2test": "^0.0.8",
     "chai": "^4.3.6",
     "gulp": "^4.0.2",
-    "mocha": "^10.0.0",
-    "scikitjs": "^1.21.0"
+    "mocha": "^10.0.0"
   }
 }
