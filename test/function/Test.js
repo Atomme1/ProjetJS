@@ -7,10 +7,5 @@ describe('datasetFunctionUtils.js', () => {
             expect(getpercentage(80)).to.be.equal(0.8);
             expect(getpercentage(30)).to.be.equal(0.3);
         });
-
-        it.skip('should return an error', () => {
-            expect(getpercentage('not')).to.be.equal(Number.NaN);
-            expect(getpercentage('')).to.be.equal(Number.NaN);
-        });
     });
 });
