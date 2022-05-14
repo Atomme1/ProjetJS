@@ -48,5 +48,40 @@ With yarn :
 yarn start
 ```
 
+### Test the project
+
+To test the project you just need to execute the following command :
+
+With npm :
+
+```node
+npm start
+```
+With yarn :
+
+```node
+yarn start
+```
+
 ## Libraries
 
+ramda :
+<https://ramdajs.com>
+
+@stdlib/stats-chi2test (For the equirepartition on a dataset test :
+<https://www.npmjs.com/package/@stdlib/stats-chi2test>
+
+pca-js :
+<https://www.npmjs.com/package/pca-js>
+
+chai :
+<https://www.chaijs.com>
+
+gulp :
+<https://gulpjs.com>
+
+mocha :
+<https://mochajs.org>
+
+xo :
+<https://www.npmjs.com/package/xo>
