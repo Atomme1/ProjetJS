@@ -39,7 +39,8 @@
       "unicorn/filename-case": 0,
       "comma-dangle": 0,
       "capitalized-comments": 0,
-      "indent": "off"
+      "indent": "off",
+      "no-undef": 0
     }
   }
 }
