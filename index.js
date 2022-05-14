@@ -33,4 +33,4 @@ const resultats = R.pipe(
     })
 );
 
-console.log(resultats(datasetinit))
+console.log(resultats(datasetinit));
