@@ -20,7 +20,7 @@ const getDataset = R.pipe(
 );
 
 const dataset = getDataset(datasetinit);
-
+//
 // console.log(dataset);
 
 // console.log(getTraining(dataset));
