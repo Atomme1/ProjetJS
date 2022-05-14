@@ -72,16 +72,21 @@ ramda :
 <https://www.npmjs.com/package/@stdlib/stats-chi2test>
 
 pca-js :
+
 <https://www.npmjs.com/package/pca-js>
 
 chai :
+
 <https://www.chaijs.com>
 
 gulp :
+
 <https://gulpjs.com>
 
 mocha :
+
 <https://mochajs.org>
 
 xo :
+
 <https://www.npmjs.com/package/xo>
