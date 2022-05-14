@@ -50,3 +50,14 @@ yarn start
 
 ## Libraries
 
+
+pca-js": "^1.0.2
+ramda": "^0.28.0
+
+"devDependencies": {
+  "@stdlib/ndarray-array": "^0.0.9",
+  "@stdlib/stats-chi2test": "^0.0.8",
+  "chai": "^4.3.6",
+  "gulp": "^4.0.2",
+  "mocha": "^10.0.0",
+  "xo": "^0.48.0"
