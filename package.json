@@ -8,6 +8,7 @@
     "start": "node index.js",
     "code-style": "xo",
     "test": "mocha --recursive"
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
