@@ -34,3 +34,5 @@ const resultats = R.pipe(
 );
 
 console.log(resultats(datasetinit));
+console.log('The null hypothesis is ---> « The EXPECTED and OBSERVED values are independant »');
+
