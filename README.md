@@ -15,7 +15,7 @@ In this project :
   - Chi² test on the test dataset
   - Principal Component Analysis of the dataset
 
-#About Chi² test
+# About Chi² test
 
 The Chi² test is to make sure our test set is not biased.
 In order to have a good accuracy on a model we need to have a good equirepartition of data in the test set.
