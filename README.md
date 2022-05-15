@@ -15,6 +15,29 @@ In this project :
   - Chi² test on the test dataset
   - Principal Component Analysis of the dataset
 
+#About Chi² test
+
+The Chi² test is to make sure our test set is not biased.
+In order to have a good accuracy on a model we need to have a good equirepartition of data in the test set.
+Therefore we run the Chi² test on 2 list, OBSERVED and EXPECTED.
+Chi² needs a null hypotesis, here we used « The EXPECTED and OBSERVED values are independant ».
+If the null hypotesis is rejected it means the test set is biased.
+If the Chi² test fails to reject null hypotesis it means the test set has a good equirepartition.
+
+Exemple:
+We have a dataset of 30 DOG, 30 CAT and 30 GIRAFFE.
+
+The null hypotesis is « The EXPECTED and OBSERVED values are independant »
+
+OBSERVED is the real quantities of values in the test set so [5,15,10]
+EXPECTED is the quantities of values we want in the test set so [10,10,10]
+
+Here you can see that the precision is not going to be good because we have more CAT than DOG.
+So Chi² test will reject the null hypotesis.
+
+Read more here https://towardsdatascience.com/chi-square-statistic-chi-squared-distribution-2499084b5da8
+ 
+
 ## Installation
 
 In order to run the project, you need to install Node JS : <https://nodejs.org/en/download/>
